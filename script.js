@@ -123,6 +123,40 @@ function searchProducts() {
 // ================= START WEBSITE =================
 
 document.addEventListener("DOMContentLoaded", function () {
+    // ================= CATEGORY FILTER =================
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        const selectedCategory = this.dataset.category;
+
+        if (selectedCategory === "All") {
+            displayProducts(products);
+        } else {
+
+            const filteredProducts = products.filter(product =>
+                product.category === selectedCategory
+            );
+
+            displayProducts(filteredProducts);
+        }
+
+        document.getElementById("deals").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+});
 
     displayProducts(products);
 
