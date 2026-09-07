@@ -23,11 +23,24 @@
                 DEAL<span>ZENO</span>
             </a>
 
-            <nav class="menu">
-                <a href="#home">Home</a>
-                <a href="#categories">Categories</a>
-                <a href="#deals">Deals</a>
-            </nav>
+         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+    ☰
+</button>
+            <div class="mobile-menu" id="mobileMenu">
+
+    <a href="#home" onclick="closeMobileMenu()">
+        Home
+    </a>
+
+    <a href="#categories" onclick="closeMobileMenu()">
+        Categories
+    </a>
+
+    <a href="#deals" onclick="closeMobileMenu()">
+        Deals
+    </a>
+
+</div>
 
             <button class="search-btn" onclick="openSearch()">
                 🔍
