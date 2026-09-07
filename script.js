@@ -1,24 +1,19 @@
 // ================= SEARCH =================
 
 function openSearch() {
-    const searchBox = document.getElementById("searchBox");
-    const searchInput = document.getElementById("searchInput");
-
-    searchBox.classList.add("active");
+    document.getElementById("searchBox").classList.add("active");
 
     setTimeout(() => {
-        searchInput.focus();
+        document.getElementById("searchInput").focus();
     }, 100);
 }
 
 function closeSearch() {
-    const searchBox = document.getElementById("searchBox");
-
-    searchBox.classList.remove("active");
+    document.getElementById("searchBox").classList.remove("active");
 }
 
 
-// ================= PRODUCT DISPLAY =================
+// ================= SHOW PRODUCTS =================
 
 function displayProducts(productList) {
 
@@ -30,9 +25,9 @@ function displayProducts(productList) {
 
         productGrid.innerHTML = `
             <div class="empty-products">
-                <div>🔍</div>
+                <div>🛍️</div>
                 <h3>No Products Found</h3>
-                <p>Try another search.</p>
+                <p>This category does not have products yet.</p>
             </div>
         `;
 
@@ -46,10 +41,7 @@ function displayProducts(productList) {
 
                 <div class="product-image">
 
-                    <img
-                        src="${product.image}"
-                        alt="${product.name}"
-                    >
+                    <img src="${product.image}" alt="${product.name}">
 
                     <span class="discount">
                         ${product.discount}% OFF
@@ -63,9 +55,7 @@ function displayProducts(productList) {
                         ${product.category}
                     </span>
 
-                    <h3>
-                        ${product.name}
-                    </h3>
+                    <h3>${product.name}</h3>
 
                     <div class="price">
 
@@ -97,15 +87,52 @@ function displayProducts(productList) {
 }
 
 
-// ================= SEARCH PRODUCTS =================
+// ================= CATEGORY FILTER =================
+
+function filterByCategory(category) {
+
+    if (category === "All") {
+
+        displayProducts(products);
+
+    } else {
+
+        const filteredProducts = products.filter(product =>
+            product.category === category
+        );
+
+        displayProducts(filteredProducts);
+    }
+
+    // Update filter buttons
+
+    document.querySelectorAll(".filter-btn").forEach(button => {
+
+        button.classList.remove("active");
+
+        if (button.dataset.category === category) {
+            button.classList.add("active");
+        }
+
+    });
+
+    // Scroll to products
+
+    document.getElementById("deals").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+// ================= SEARCH =================
 
 function searchProducts() {
 
     const searchInput = document.getElementById("searchInput");
 
-    if (!searchInput) return;
-
-    const searchText = searchInput.value.toLowerCase().trim();
+    const searchText = searchInput.value
+        .toLowerCase()
+        .trim();
 
     const filteredProducts = products.filter(product => {
 
@@ -120,45 +147,45 @@ function searchProducts() {
 }
 
 
-// ================= START WEBSITE =================
+// ================= WEBSITE START =================
 
 document.addEventListener("DOMContentLoaded", function () {
-    // ================= CATEGORY FILTER =================
 
-const filterButtons = document.querySelectorAll(".filter-btn");
+    // Show all products when website opens
+    displayProducts(products);
 
-filterButtons.forEach(button => {
 
-    button.addEventListener("click", function () {
+    // Filter buttons
 
-        filterButtons.forEach(btn => {
-            btn.classList.remove("active");
-        });
+    document.querySelectorAll(".filter-btn").forEach(button => {
 
-        this.classList.add("active");
+        button.addEventListener("click", function () {
 
-        const selectedCategory = this.dataset.category;
+            const category = this.dataset.category;
 
-        if (selectedCategory === "All") {
-            displayProducts(products);
-        } else {
+            filterByCategory(category);
 
-            const filteredProducts = products.filter(product =>
-                product.category === selectedCategory
-            );
-
-            displayProducts(filteredProducts);
-        }
-
-        document.getElementById("deals").scrollIntoView({
-            behavior: "smooth"
         });
 
     });
 
-});
 
-    displayProducts(products);
+    // Category cards
+
+    document.querySelectorAll(".category-card").forEach(card => {
+
+        card.addEventListener("click", function () {
+
+            const category = this.dataset.category;
+
+            filterByCategory(category);
+
+        });
+
+    });
+
+
+    // Search
 
     const searchInput = document.getElementById("searchInput");
 
@@ -179,8 +206,12 @@ filterButtons.forEach(button => {
 document.addEventListener("click", function (event) {
 
     const searchBox = document.getElementById("searchBox");
-    const searchContent = document.querySelector(".search-content");
-    const searchButton = document.querySelector(".search-btn");
+
+    const searchContent =
+        document.querySelector(".search-content");
+
+    const searchButton =
+        document.querySelector(".search-btn");
 
     if (
         searchBox &&
@@ -202,9 +233,7 @@ document.addEventListener("click", function (event) {
 document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
-
         closeSearch();
-
     }
 
 });
