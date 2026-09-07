@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEALZENO - Smart Deals. Better Choices.</title>
+
+    <meta name="description"
+        content="Discover smart deals on Electronics, Grocery & Essentials, Home & Kitchen, and Accessories at DEALZENO.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="index.html" class="logo">
+                DEAL<span>ZENO</span>
+            </a>
+
+            <nav class="menu">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#deals">Deals</a>
+            </nav>
+
+            <button class="search-btn" onclick="openSearch()">
+                🔍
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- Search Box -->
+    <div class="search-overlay" id="searchBox">
+
+        <div class="search-content">
+
+            <button class="close-search" onclick="closeSearch()">
+                ✕
+            </button>
+
+            <h2>Find Your Deal</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    WELCOME TO DEALZENO
+                </p>
+
+                <h1>
+                    Smart Deals.<br>
+                    Better Choices.
+                </h1>
+
+                <p>
+                    Discover useful products, trending deals and
+                    everyday essentials — all in one place.
+                </p>
+
+                <a href="#categories" class="hero-btn">
+                    Explore Categories
+                </a>
+
+            </div>
+
+            <div class="hero-shape">
+
+                <div class="deal-circle">
+                    <span>DEAL</span>
+                    <strong>ZONE</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p>SHOP BY CATEGORY</p>
+
+                <h2>
+                    Explore Our Categories
+                </h2>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <a href="#deals" class="category-card">
+
+                    <div class="category-icon">
+                        📱
+                    </div>
+
+                    <h3>Electronics</h3>
+
+                    <p>
+                        Smart gadgets & accessories
+                    </p>
+
+                </a>
+
+
+                <a href="#deals" class="category-card">
+
+                    <div class="category-icon">
+                        🛒
+                    </div>
+
+                    <h3>Grocery & Essentials</h3>
+
+                    <p>
+                        Everyday useful products
+                    </p>
+
+                </a>
+
+
+                <a href="#deals" class="category-card">
+
+                    <div class="category-icon">
+                        🏠
+                    </div>
+
+                    <h3>Home & Kitchen</h3>
+
+                    <p>
+                        Make your home better
+                    </p>
+
+                </a>
+
+
+                <a href="#deals" class="category-card">
+
+                    <div class="category-icon">
+                        ⌚
+                    </div>
+
+                    <h3>Accessories</h3>
+
+                    <p>
+                        Stylish everyday accessories
+                    </p>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Deals -->
+    <section class="deals" id="deals">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p>FEATURED PRODUCTS</p>
+
+                <h2>
+                    Today's Deals
+                </h2>
+
+            </div>
+
+
+            <div class="product-grid" id="productGrid">
+
+                <div class="empty-products">
+
+                    <div>🛍️</div>
+
+                    <h3>Products Coming Soon</h3>
+
+                    <p>
+                        Our latest deals will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="footer-logo">
+                    DEAL<span>ZENO</span>
+                </div>
+
+                <p>
+                    Smart Deals. Better Choices.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#deals">Deals</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 DEALZENO. All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
