@@ -584,3 +584,44 @@ a {
     }
 
 }
+/* ================= CATEGORY FILTER ================= */
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    border: 1px solid #ddd;
+    background: white;
+    color: #222;
+    padding: 11px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #171717;
+    color: white;
+    border-color: #171717;
+}
+
+@media (max-width: 600px) {
+
+    .category-filter {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+    }
+
+}
